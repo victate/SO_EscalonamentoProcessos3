@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/victa/CLionProjects/SO_EscalonamentoProcessos3/main.cpp
+iostream
+-
+objects.cpp
+C:/Users/victa/CLionProjects/SO_EscalonamentoProcessos3/objects.cpp
+sort_by.cpp
+C:/Users/victa/CLionProjects/SO_EscalonamentoProcessos3/sort_by.cpp
+
+C:/Users/victa/CLionProjects/SO_EscalonamentoProcessos3/objects.cpp
+string
+-
+
+C:/Users/victa/CLionProjects/SO_EscalonamentoProcessos3/sort_by.cpp
+
