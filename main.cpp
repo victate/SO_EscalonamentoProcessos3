@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+#include <string>
 #include "objects.cpp"
 #include "sort_by.cpp"
 
@@ -12,7 +14,7 @@ int main() {
 
     int p_len, i;
 
-    cout<<"How many process, please?\n";
+    cout<<"How many processes, please?\n";
     cin>>p_len;
 
     example = (Processo*) malloc(p_len*sizeof(Processo));
