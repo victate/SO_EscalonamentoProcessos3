@@ -1,4 +1,4 @@
-#include "objects.cpp"
+#include "fila.h"
 #include <iostream>
 
 Fila *criaFila(){
@@ -25,4 +25,5 @@ Fila *criaFila(){
 Fila *destroiFila(Fila *f){
   if(f->percorreFila()) destroiFila(f->percorreFila());
   free(f);
+  return NULL;
 }

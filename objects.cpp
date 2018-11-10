@@ -3,6 +3,7 @@
 //
 #include <string>
 #include <vector>
+#include "fila.h"
 using namespace std;
 
 //classe processo
@@ -97,9 +98,15 @@ Fila::rodaProcesso(){
 
 }
 
-Fila::transfereProcesso(int i){
-  prox->processos.push_back(this->processos[i]);
-  this->processos.erase(i);
+Fila::transfereProcesso(){
+  if(prox->next){
+    prox->insereProcesso(processos[i]);
+    processos.erase(0);
+  }
+  else{ //processos voltam pra primeira fila? Senão apaga essa parte
+    f->insereProcesso(processos[i]); //processo volta pro início
+    processos.erase(0);
+  }
 }
 
 Fila::encadeiaFila(Fila *fila){
