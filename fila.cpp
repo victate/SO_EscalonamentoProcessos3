@@ -22,8 +22,7 @@ Fila *criaFila(){
   return prim;
 }
 
-Fila *destroiFila(Fila *f){
+void destroiFila(Fila *f){
   if(f->percorreFila()) destroiFila(f->percorreFila());
   free(f);
-  return NULL;
 }
