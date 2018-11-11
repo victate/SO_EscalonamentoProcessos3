@@ -1,8 +1,7 @@
 #include <fstream>
 #include <iostream>
-#include "objects.cpp"
 // #include "sort_by.cpp"
-#include "fila.h"
+#include "fila.cpp"
 
 
 using namespace std;
@@ -10,7 +9,9 @@ using namespace std;
 // Executada quando a main começa a rodar, lê o arquivo texto, cria os processos e preenche
 // a fila de entrada
 int lerArquivo(string nomeArq) {
+
   std::ifstream arq(nomeArq);
+
   if (!arq) {
     std::cout << "Arquivo não encontrado" << '\n';
     return 0;
@@ -31,11 +32,12 @@ int lerArquivo(string nomeArq) {
     Processo item = Processo(palavras[0], palavras[1], palavras[2], palavras[3]);
   }
 
-
   std::cout << "Arquivos lidos!" << '\n';
 }
 
 int main() {
+  Fila fila1 = Fila(1,1);
+
   // começa lendo os processos do arquivo
   std::string nomeArq;
   std::cout << "Olá, bem-vinda ao nosso gerenciador de processos! :)" << '\n';
@@ -45,43 +47,5 @@ int main() {
 
   lerArquivo(nomeArq);
 
-    //
-    // Processo *example;
-    // Processo p;
-    //
-    // int p_len, i;
-    //
-    // cout<<"How many processes, please?\n";
-    // cin>>p_len;
-    //
-    // example = (Processo*) malloc(p_len*sizeof(Processo));
-    // cout<< sizeof(Processo);
-    //
-    // for(i=0; i<p_len; i++){
-    //     cout<<"Process no ";
-    //     cin>>p.name;
-    //     cout<<"Process Arrival Time:";
-    //     cin>>p.arrival;
-    //     cout<<"Process Duration:";
-    //     cin>>p.exec_time;
-    //     cout<<"Process IO Start Time:";
-    //     cin>>p.start_IO;
-    //     cout<<"Process IO Duration:";
-    //     cin>>p.duration_IO;
-    //     cout<<"Process Priority:";
-    //     cin>>p.priority;
-    //     example[i] = p;
-    //     cout<<"Name: ";
-    //     cout<<example[i].name;
-    //     cout<<"\nArrival Time: ";
-    //     cout<<example[i].arrival;
-    //     cout<<"\n--------------------\nnext\n--------------------\n";
-    //
-    // }
-    // if(p_len>0){
-    //     example = sort_by(example, getProcessAtribIndex("priority"));
-    // }
-    //
-    // free(example);
-    // return 0;
+
 }
