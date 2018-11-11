@@ -1,7 +1,35 @@
+#include <fstream>
+#include <iostream>
+#include "objects.cpp"
+// #include "sort_by.cpp"
 #include "fila.h"
+
+
 using namespace std;
 
+// Executada quando a main começa a rodar, lê o arquivo texto, cria os processos e preenche
+// a fila de entrada
 int lerArquivo(string nomeArq) {
+  std::ifstream arq(nomeArq);
+  if (!arq) {
+    std::cout << "Arquivo não encontrado" << '\n';
+    return 0;
+  }
+  // lê as linhas do arquivo uma por vez e cria os processos com os dados
+  std::string linha;
+
+  while (std::getline(arq, linha)) {
+
+    //separa cada linha nas 4 "palavras" que a compõe e cria o prcesso
+    std::string palavras [4];
+    for (int i = 0; i < 4; i++) {
+      int fimPalavra = linha.find(";");
+      std::string palavra = linha.substr(0, fimPalavra);
+      palavras[i] = palavra;
+      linha = linha.substr(fimPalavra+1);
+    }
+    Processo item = Processo(palavras[0], palavras[1], palavras[2], palavras[3]);
+  }
 
 
   std::cout << "Arquivos lidos!" << '\n';
