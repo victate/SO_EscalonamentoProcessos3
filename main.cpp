@@ -51,6 +51,9 @@ int main() {
   std::cout << "Estamos lendo os processos do arquivo..." << '\n';
 
   fila = lerArquivo(nomeArq, fila);
-  CPU nova = CPU(fila);
+  for(i = 0; i<=3; i++){
+    CPU nova = CPU(fila, fila2);
+  }
+
 
 }

@@ -15,8 +15,6 @@ public:
     void transfereProcesso(int i);
     Processo primeiro();
     Processo index(int i);
-
-private:
     int quantum;
     int id;
     list<Processo> lista_processos;
