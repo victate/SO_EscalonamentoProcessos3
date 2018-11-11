@@ -7,13 +7,13 @@ using namespace std;
 
 // Executada quando a main começa a rodar, lê o arquivo texto, cria os processos e preenche
 // a fila de entrada
-int lerArquivo(string nomeArq, Fila fila) {
+Fila lerArquivo(string nomeArq, Fila fila) {
 
   std::ifstream arq(nomeArq);
 
   if (!arq) {
     std::cout << "Arquivo não encontrado" << '\n';
-    return 0;
+    return Fila(0,0);
   }
   // lê as linhas do arquivo uma por vez e cria os processos com os dados
   std::string linha;
@@ -29,10 +29,12 @@ int lerArquivo(string nomeArq, Fila fila) {
       linha = linha.substr(fimPalavra+1);
     }
     Processo item = Processo(palavras[0], palavras[1], palavras[2], palavras[3]);
+
     fila.insereProcesso(item);
   }
 
   std::cout << "Arquivos lidos!" << '\n';
+  return fila;
 }
 
 int main() {
@@ -48,8 +50,7 @@ int main() {
   std::cin >> nomeArq;
   std::cout << "Estamos lendo os processos do arquivo..." << '\n';
 
-  lerArquivo(nomeArq, fila);
-
+  fila = lerArquivo(nomeArq, fila);
   CPU nova = CPU(fila);
 
 }

@@ -6,7 +6,7 @@ class CPU {
 
 private:
     int contador;
-    Fila fila;
+    Fila fila = Fila(0,0);
 public:
     CPU(Fila fila);
     bool iniciaCPU();
@@ -24,27 +24,17 @@ bool CPU::iniciaCPU(){
     int quantum = 1;
     int inicio = contador;
     int pos_fila = 0;
-    Processo processo;
+    Processo processo = fila.primeiro();
 
     while(exec){
 
-        if (contador==0){
-            if(fila.primeiro().chegada == contador){
-                processo = fila.primeiro();
-            }
-            else{
-                contador++;
-            }
-        }
-
-        else{
-            contador++;
+        if (processo.chegada<=contador){
+            inicio = contador;
             processo.tempo_exec--;
 
-            if(contador-inicio == quantum){
+            if(contador-inicio >= quantum){
 
                 if(fila.index(pos_fila+1).chegada<=quantum){
-                    printf("----");
                     pos_fila++;
                     processo=fila.index(pos_fila);
                 }
@@ -59,6 +49,6 @@ bool CPU::iniciaCPU(){
                 inicio=contador;
             }
         }
-        pos_fila++;
+        contador++;
     }
 }

@@ -7,7 +7,6 @@ using namespace std;
 class Processo {
 
 public:
-    Processo();
     Processo(string nome1, string chegada1, string exec, string prioridade1);
     int getProcessAtribIndex(string atribute);
     string getIndexProcessAtrib(int i);
@@ -18,13 +17,6 @@ public:
     int prioridade;
 
 };
-
-Processo::Processo(){
-    nome="";
-    chegada=0;
-    tempo_exec=0;
-    prioridade=0;
-}
 
 Processo::Processo(string nome1, string chegada1, string exec, string prioridade1) {
     nome = nome1;
