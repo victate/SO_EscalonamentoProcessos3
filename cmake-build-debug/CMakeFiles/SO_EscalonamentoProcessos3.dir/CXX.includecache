@@ -6,23 +6,33 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/victa/CLionProjects/SO_EscalonamentoProcessos3/fila.h
+C:/Users/victa/CLionProjects/SO_EscalonamentoProcessos3/CPU.cpp
+fila.cpp
+C:/Users/victa/CLionProjects/SO_EscalonamentoProcessos3/fila.cpp
+stdio.h
+-
+stdlib.h
+-
+
+C:/Users/victa/CLionProjects/SO_EscalonamentoProcessos3/fila.cpp
 iostream
 -
 vector
 -
+list
+-
+processo.cpp
+C:/Users/victa/CLionProjects/SO_EscalonamentoProcessos3/processo.cpp
 
 C:/Users/victa/CLionProjects/SO_EscalonamentoProcessos3/main.cpp
 fstream
 -
 iostream
 -
-objects.cpp
-C:/Users/victa/CLionProjects/SO_EscalonamentoProcessos3/objects.cpp
-fila.h
-C:/Users/victa/CLionProjects/SO_EscalonamentoProcessos3/fila.h
+CPU.cpp
+C:/Users/victa/CLionProjects/SO_EscalonamentoProcessos3/CPU.cpp
 
-C:/Users/victa/CLionProjects/SO_EscalonamentoProcessos3/objects.cpp
+C:/Users/victa/CLionProjects/SO_EscalonamentoProcessos3/processo.cpp
 string
 -
 vector

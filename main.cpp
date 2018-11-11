@@ -1,14 +1,13 @@
 #include <fstream>
 #include <iostream>
-// #include "sort_by.cpp"
-#include "fila.cpp"
+#include "CPU.cpp"
 
 
 using namespace std;
 
 // Executada quando a main começa a rodar, lê o arquivo texto, cria os processos e preenche
 // a fila de entrada
-int lerArquivo(string nomeArq) {
+int lerArquivo(string nomeArq, Fila fila) {
 
   std::ifstream arq(nomeArq);
 
@@ -30,13 +29,17 @@ int lerArquivo(string nomeArq) {
       linha = linha.substr(fimPalavra+1);
     }
     Processo item = Processo(palavras[0], palavras[1], palavras[2], palavras[3]);
+    fila.insereProcesso(item);
   }
 
   std::cout << "Arquivos lidos!" << '\n';
 }
 
 int main() {
-  Fila fila1 = Fila(1,1);
+  Fila fila = Fila(1,1);
+  Fila fila2 = Fila(1,2);
+  Fila fila3 = Fila(1,4);
+  Fila fila4 = Fila(1,8);
 
   // começa lendo os processos do arquivo
   std::string nomeArq;
@@ -45,7 +48,8 @@ int main() {
   std::cin >> nomeArq;
   std::cout << "Estamos lendo os processos do arquivo..." << '\n';
 
-  lerArquivo(nomeArq);
+  lerArquivo(nomeArq, fila);
 
+  CPU nova = CPU(fila);
 
 }

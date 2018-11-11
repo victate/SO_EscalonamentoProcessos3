@@ -1,45 +1,64 @@
-#include "processo.cpp"
+#include "fila.cpp"
 #include <stdio.h>
 #include <stdlib.h>
 
-class CPU{
+class CPU {
 
 private:
-        int contador;
-        Processo processo;
-        Processo * fila;
+    int contador;
+    Fila fila;
 public:
-    CPU(Processo *fila)
-        : contador(0), fila(fila), processo()
-    {iniciaCPU();}
+    CPU(Fila fila);
+    bool iniciaCPU();
+};
 
-    bool iniciaCPU(){
-        bool exec = true;
-        int quantum = 1;
-        int inicio = contador;
-        int pos_fila = 0;
-        while(exec){
-            printf("%d\n",contador);
+CPU::CPU(Fila fila1) {
+    contador = 0;
+    fila = fila1;
+    iniciaCPU();
+}
+
+
+bool CPU::iniciaCPU(){
+    bool exec = true;
+    int quantum = 1;
+    int inicio = contador;
+    int pos_fila = 0;
+    Processo processo;
+
+    while(exec){
+
+        if (contador==0){
+            if(fila.primeiro().chegada == contador){
+                processo = fila.primeiro();
+            }
+            else{
+                contador++;
+            }
+        }
+
+        else{
             contador++;
-            processo.exec_time--;
+            processo.tempo_exec--;
 
             if(contador-inicio == quantum){
 
-                if(fila[pos_fila+1].arrival<=quantum){
+                if(fila.index(pos_fila+1).chegada<=quantum){
                     printf("----");
                     pos_fila++;
-                    processo=fila[pos_fila];
+                    processo=fila.index(pos_fila);
                 }
                 else{
-                    if(processo.exec_time<=0 and fila->getProcessAtribIndex()){
+                    if(processo.tempo_exec<=0){
                         exec=false;
                     }
                 }
-                if(processo.exec_time>0){
+                if(processo.tempo_exec>0){
                     //manda para a próxima fila
                 }
                 inicio=contador;
             }
         }
+        pos_fila++;
     }
-};
+}
