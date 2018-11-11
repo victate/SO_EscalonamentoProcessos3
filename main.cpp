@@ -1,8 +1,4 @@
-#include "objects.cpp"
-#include "sort_by.cpp"
 #include "fila.h"
-
-
 using namespace std;
 
 int lerArquivo(string nomeArq) {

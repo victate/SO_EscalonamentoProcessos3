@@ -2,23 +2,21 @@
 // Created by victa on 09/11/2018.
 //
 #include <string>
-#include <vector>
-#include "fila.h"
 using namespace std;
 
 //classe processo
-class Processo {
+class Processo{
 
   public:
     int getProcessAtribIndex(string atribute);
     string getIndexProcessAtrib(int i);
-  public:
-        char name;
-        int arrival;
-        int exec_time;
-        int start_IO;
-        int duration_IO;
-        int priority;
+
+    char name;
+    int arrival;
+    int exec_time;
+    int start_IO;
+    int duration_IO;
+    int priority;
 
 };
 
@@ -44,8 +42,7 @@ int Processo::getProcessAtribIndex(string atribute){
 }
 
 string Processo::getIndexProcessAtrib(int i){
-
-    switch(i){
+    switch (i){
         case 0:
             return "name";
         case 1:
@@ -58,5 +55,17 @@ string Processo::getIndexProcessAtrib(int i){
             return "duracao_IO";
         case 5:
             return "priority";
+
     }
+}
+
+//funcoes de sort
+Processo* sort_by(Processo* pList, int index){
+
+    int i;
+    Processo* sorted_arr = pList;
+
+/*    for(i=1; i< sizeof(pList); i++){
+        if(pList[i].  pList[i-1])
+    }*/
 }
