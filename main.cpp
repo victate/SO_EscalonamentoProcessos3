@@ -1,15 +1,15 @@
 #include <iostream>
 #include <vector>
 #include <string>
-// #include "objects.cpp"
-// #include "sort_by.cpp"
-// #include "fila.h"
+#include "objects.cpp"
+#include "sort_by.cpp"
+#include "fila.h"
 
 
 using namespace std;
 
 int lerArquivo(string nomeArq) {
-  
+
 
   std::cout << "Arquivos lidos!" << '\n';
 }
