@@ -43,7 +43,7 @@ int main() {
 
     }
     if(p_len>0){
-        example = sort_by(example, getProcessAtribIndex("priority"));
+        example = sort_by(example, p.getProcessAtribIndex("priority"));
     }
 
     free(example);
