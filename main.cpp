@@ -1,6 +1,6 @@
-#include <iostream>
 #include "objects.cpp"
 #include "sort_by.cpp"
+#include "fila.h"
 
 
 using namespace std;
@@ -12,7 +12,7 @@ int main() {
 
     int p_len, i;
 
-    cout<<"How many process, please?\n";
+    cout<<"How many processes, please?\n";
     cin>>p_len;
 
     example = (Processo*) malloc(p_len*sizeof(Processo));
@@ -40,7 +40,7 @@ int main() {
 
     }
     if(p_len>0){
-        example = sort_by(example, getProcessAtribIndex("priority"));
+        example = sort_by(example, p.getProcessAtribIndex("priority"));
     }
 
     free(example);

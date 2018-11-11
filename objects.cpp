@@ -2,11 +2,17 @@
 // Created by victa on 09/11/2018.
 //
 #include <string>
+#include <vector>
+#include "fila.h"
 using namespace std;
 
+//classe processo
 class Processo {
 
-    public:
+  public:
+    int getProcessAtribIndex(string atribute);
+    string getIndexProcessAtrib(int i);
+  public:
         char name;
         int arrival;
         int exec_time;
@@ -16,7 +22,7 @@ class Processo {
 
 };
 
-int getProcessAtribIndex(string atribute){
+int Processo::getProcessAtribIndex(string atribute){
     if(atribute=="name"){
         return 0;
     }
@@ -37,9 +43,9 @@ int getProcessAtribIndex(string atribute){
     }
 }
 
-string getIndexProcessAtrib(int i){
+string Processo::getIndexProcessAtrib(int i){
 
-    switch (i){
+    switch(i){
         case 0:
             return "name";
         case 1:
@@ -54,4 +60,3 @@ string getIndexProcessAtrib(int i){
             return "priority";
     }
 }
-
