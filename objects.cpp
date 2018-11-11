@@ -12,7 +12,7 @@ class Processo {
   public:
     int getProcessAtribIndex(string atribute);
     string getIndexProcessAtrib(int i);
-  private:
+  public:
         char name;
         int arrival;
         int exec_time;
@@ -45,13 +45,13 @@ int Processo::getProcessAtribIndex(string atribute){
 
 string Processo::getIndexProcessAtrib(int i){
 
+    switch(i){
         case 0:
             return "name";
         case 1:
             return "arrival";
         case 2:
             return "exec_time";
-            switch (i){
         case 3:
             return "start_IO";
         case 4:
