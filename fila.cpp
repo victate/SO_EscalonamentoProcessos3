@@ -1,5 +1,4 @@
 #include "fila.h"
-#include <iostream>
 
 //métodos da classe fila
 

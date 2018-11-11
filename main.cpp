@@ -1,6 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <string>
 #include "objects.cpp"
 #include "sort_by.cpp"
 #include "fila.h"
