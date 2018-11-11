@@ -1,8 +1,4 @@
-#include "objects.cpp"
-#include "sort_by.cpp"
 #include "fila.h"
-
-
 using namespace std;
 
 int main() {
@@ -40,7 +36,7 @@ int main() {
 
     }
     if(p_len>0){
-        example = sort_by(example, getProcessAtribIndex("priority"));
+        example = sort_by(example, 2);
     }
 
     free(example);
