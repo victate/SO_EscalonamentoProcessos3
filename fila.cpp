@@ -1,6 +1,51 @@
 #include "fila.h"
 #include <iostream>
 
+//métodos da classe fila
+
+Fila::Fila(int quant, int num){
+  quantum = quant;
+  numero = num;
+  prox = NULL;
+}
+
+Fila::insereProcesso(Processo proc){
+  vector.push_back(proc);
+}
+
+Fila::removeProcesso(int i){
+  vector.erase(i);
+}
+
+Fila::rodaProcesso(){
+
+}
+
+Fila::transfereProcesso(){
+  if(prox->next){
+    prox->insereProcesso(processos[i]);
+    processos.erase(0);
+  }
+  else{ //processos voltam pra primeira fila? Senão apaga essa parte
+    f->insereProcesso(processos[i]); //processo volta pro início
+    processos.erase(0);
+  }
+}
+
+Fila::encadeiaFila(Fila *fila){
+  prox = fila;
+}
+
+Fila::percorreFila(){
+  return prox;
+}
+
+Fila::~Fila(){
+  cout << "Fim da fila %d" << numero;
+}
+
+//funcoes da estrutura
+
 Fila *criaFila(){
   Fila *prim = NULL;
   Fila temp;
