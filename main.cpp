@@ -42,15 +42,18 @@ int main() {
   Fila fila2 = Fila(1,2);
   Fila fila3 = Fila(1,4);
   Fila fila4 = Fila(1,8);
+  int i;
 
   // começa lendo os processos do arquivo
   std::string nomeArq;
   std::cout << "Olá, bem-vinda ao nosso gerenciador de processos! :)" << '\n';
-  std::cout << "Digite o nome do arquivo  ser lido:" << '\n';
+  std::cout << "Digite o caminho do arquivo a ser lido:" << '\n';
   std::cin >> nomeArq;
   std::cout << "Estamos lendo os processos do arquivo..." << '\n';
 
   fila = lerArquivo(nomeArq, fila);
-  CPU nova = CPU(fila);
+  CPU nova = CPU();
+  nova.iniciaCPU(fila, fila2, fila3, fila4);
+
 
 }
