@@ -8,7 +8,7 @@ class Fila{
 public:
     Fila(int id, int quantum);
     void rodaProcesso();
-    void insereProcesso(Processo proc);
+    int insereProcesso(Processo proc);
     void encadeiaFila(Fila *fila);
     Fila *percorreFila();
     void removeProcesso(int i);
@@ -25,8 +25,30 @@ Fila::Fila(int id1, int quantum1){
     quantum = quantum1;
 }
 
-void Fila::insereProcesso(Processo processo) {
-    lista_processos.insert(lista_processos.end(),processo);
+int Fila::insereProcesso(Processo processo) {
+    int i;
+    std::list<Processo>::iterator it = lista_processos.begin();
+    for(i=0; i<=lista_processos.size(); i++){
+        std::advance(it, i);
+        if(processo.chegada < (*it).chegada) {
+            lista_processos.insert(it, processo);
+            return 1;
+        }
+        if(processo.chegada == (*it).chegada) {
+            if(processo.prioridade > (*it).prioridade){
+                lista_processos.insert(it, processo);
+                return 1;
+            }
+            else{
+                std::advance(it, i+1);
+                lista_processos.insert(it, processo);
+                return 1;
+            }
+        }
+    }
+    lista_processos.insert(lista_processos.end(), processo);
+    return 1;
+
 }
 
 Processo Fila::primeiro(){

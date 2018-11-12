@@ -11,18 +11,20 @@ public:
     int getProcessAtribIndex(string atribute);
     string getIndexProcessAtrib(int i);
 public:
-    string nome;
+    int nome;
     int chegada;
     int tempo_exec;
     int prioridade;
+    int fila;
 
 };
 
 Processo::Processo(string nome1, string chegada1, string exec, string prioridade1) {
-    nome = nome1;
+    nome = std::stoi(nome1);
     chegada = std::stoi(chegada1);
     tempo_exec = std::stoi(exec);
     prioridade = std::stoi(prioridade1);
+    fila = 1;
 }
 
 int Processo::getProcessAtribIndex(string atribute){
