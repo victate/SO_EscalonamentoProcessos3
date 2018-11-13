@@ -52,7 +52,6 @@ int Fila::insereProcesso(Processo processo) {
     int i;
     std::list<Processo>::iterator it = lista_processos.begin();
     for(i=0; i<=lista_processos.size(); i++){
-        std::advance(it, i);
         if(processo.chegada < (*it).chegada) {
             lista_processos.insert(it, processo);
             return 1;
@@ -68,6 +67,7 @@ int Fila::insereProcesso(Processo processo) {
                 return 1;
             }
         }
+        std::advance(it, 1);
     }
     lista_processos.insert(lista_processos.end(), processo);
     return 1;

@@ -23,13 +23,13 @@ Fila CPU::iniciaCPU(Fila fila, Fila fila2, Fila fila3, Fila fila4){
     int inicio = 0;
     int quantum = 0;
     Fila fila_exec = Fila(0,fila.quantum);
-    Fila fila_aux = fila;
+    Fila *fila_aux = &fila;
     char continuar;
 
     std::list<Processo>::iterator it;
 
     while(((((((fila_exec.lista_processos.size()>0) || (processo.tempo_exec>0))
-              || (fila_aux.lista_processos.size()>0)) || (fila2.lista_processos.size()>0))
+              || (fila_aux->lista_processos.size()>0)) || (fila2.lista_processos.size()>0))
             || (fila3.lista_processos.size()>0)) || (fila4.lista_processos.size()>0))){
 
         if(contador>0){
@@ -39,13 +39,11 @@ Fila CPU::iniciaCPU(Fila fila, Fila fila2, Fila fila3, Fila fila4){
 
         if((continuar == 's' or continuar=='S') or contador==0){
 
-            if(fila_aux.lista_processos.size()>0){
-                if(fila_aux.primeiro().chegada <= contador){
-                    if(!fila_exec.has(fila_aux.primeiro())){
-                        fila_exec.insereProcesso(fila_aux.primeiro());
+            if(fila_aux->lista_processos.size()>0){
+                if(fila_aux->primeiro().chegada <= contador){
+                    if(!fila_exec.has(fila_aux->primeiro())){
+                        fila_exec.insereProcesso(fila_aux->primeiro());
                     }
-                    it = fila_aux.lista_processos.begin();
-                    fila_aux.lista_processos.erase(it);
                 }
             }
 
@@ -130,15 +128,15 @@ Fila CPU::iniciaCPU(Fila fila, Fila fila2, Fila fila3, Fila fila4){
                 }
             }
 
-            if(fila_aux.lista_processos.size()==0) {
+            if(fila_aux->lista_processos.size()==0) {
                 if (fila2.lista_processos.size() > 0) {
-                    fila_aux = fila2;
+                    fila_aux = &fila2;
                 }else {
                     if (fila3.lista_processos.size() > 0) {
-                        fila_aux = fila3;
+                        fila_aux = &fila3;
                     }else{
                         if (fila4.lista_processos.size() > 0) {
-                            fila_aux = fila4;
+                            fila_aux = &fila4;
                         }
                     }
                 }
@@ -155,6 +153,7 @@ Fila CPU::iniciaCPU(Fila fila, Fila fila2, Fila fila3, Fila fila4){
 
             contador++;
         }
+        else return fila_exec;
     }
 
     cout<<"Encerrado";
