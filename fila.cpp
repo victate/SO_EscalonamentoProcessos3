@@ -27,12 +27,12 @@ string Fila::toString(){
     string result = "";
     std::list<Processo>::iterator it = lista_processos.begin();
     for(i=0; i<lista_processos.size(); i++){
-        std::advance(it, i);
         if(i==0){
             result = std::to_string((*it).nome) + "-> Chegada: "+std::to_string((*it).chegada);
         }else{
             result = result + ", " + std::to_string((*it).nome) + "-> Chegada: "+std::to_string((*it).chegada);
         }
+        std::advance(it, 1);
     }
     return "["+result+"]";
 }
